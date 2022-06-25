@@ -12,10 +12,6 @@ require('dotenv').config()
 app.get('/neo', (req, res) => {
     const start_date = req.query.start_date
     const end_date = req.query.end_date
-    console.log(start_date)
-    console.log(end_date)
-    console.log(process.env.REACT_APP_NASA_API_KEY)
-
     const options = {
         method: 'GET', 
         url: `https://api.nasa.gov/neo/rest/v1/feed?start_date=${start_date}&end_date=${end_date}&api_key=${process.env.REACT_APP_NASA_API_KEY}`
@@ -29,8 +25,7 @@ app.get('/neo', (req, res) => {
             res.json(response)
         })
         .catch((error) => {
-            console.log('error')
-            console.log(error)
+           res.status(400).json({"error": error})
         })
     }
     else {
