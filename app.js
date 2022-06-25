@@ -2,8 +2,10 @@ const axios = require('axios')
 const express = require('express')
 const cors = require('cors')
 const app = express()
+const path = require('path')
 app.use(cors())
-const port = 3001
+app.use(express.static(path.join(__dirname + "/public")))
+const port = 5000
 
 require('dotenv').config()
 
