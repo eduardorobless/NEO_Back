@@ -22,14 +22,21 @@ app.get('/neo', (req, res) => {
     }
 
 
-    axios.request(options)
-    .then((response) => {
-        res.json(response.data.near_earth_objects)
-    })
-    .catch((error) => {
-        console.log('error')
-        console.log(error)
-    })
+    if (start_date === end_date) {
+        axios.request(options)
+        .then((response) => {
+            response = response.data.near_earth_objects[start_date].map(({ links, ...object }) => object);
+            res.json(response)
+        })
+        .catch((error) => {
+            console.log('error')
+            console.log(error)
+        })
+    }
+    else {
+        res.json({"error": "wrong parameters"});
+    }
+
 
 })
 
