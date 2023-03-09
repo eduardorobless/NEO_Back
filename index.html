@@ -7,18 +7,110 @@
     <title>Document</title>
 
     <style>
-      header {
+      body header,
+      h1 {
         text-align: center;
       }
 
       body {
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-image: url("./neo.png");
+        font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+          sans-serif;
+        font-size: larger;
+        background-color: blue;
+        color: whitesmoke;
+        text-align: auto;
+        text-justify: inter-word;
+      }
+
+      #postman {
+        display: block;
+        width: 82%;
+        margin: 0 auto;
+      }
+
+      a:link {
+        background-color: yellow;
+      }
+
+      a:visited {
+        background-color: cyan;
+      }
+
+      a:hover {
+        background-color: lightgreen;
+      }
+
+      a:active {
+        background-color: hotpink;
       }
     </style>
   </head>
   <body>
-    <header>my header</header>
+    <h1>NEO (Near Earth Object) project</h1>
+    <header>
+      Hazardous Near Earth Objects, look up to the sky before you go out!
+    </header>
+
+    <section>
+      <h2>Aim of project</h2>
+      The aim of this project is apply backend technologies to get relevant data
+      for the human species; the Near Earth Objects!
+    </section>
+
+    <section>
+      <h2>How it works?</h2>
+      How it works? Well, the app works in the following way:
+
+      <ul>
+        <li>
+          We use the NASA API
+          <a target="_blank" href="https://api.nasa.gov/"
+            ><i>Asteroids - NeoWs</i></a
+          >. Being a well respected organization the NASA provides several APIs
+          to gather data and make it useful to people.
+        </li>
+        <li>
+          Apply start date and end date parameter to delimitate gather date
+          ranges (we use the same date for both).
+        </li>
+        <li>Get the data back in form of JSON object</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>The technologies used are</h2>
+
+      <ul>
+        <li>
+          <b>Express</b>. To create the RESTful API that can call the NASA API
+        </li>
+        <li><b>Postman</b>. To test the RESTful API</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>API details</h2>
+
+      <ul>
+        <li>Method: Get</li>
+        <li>
+          Endpoint:
+          localhost:5000/neo?start_date={yyyy-mm-dd}&end_date={yyyy-mm-dd}
+        </li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>See it in action</h2>
+
+      <img src="./postman.png" id="postman" />
+    </section>
+
+    <section>
+      <h2>See code implementation on Github</h2>
+      <a target="_blank" href="https://github.com/eduardorobless/NEO_Back"
+        >See code implementation</a
+      >
+    </section>
   </body>
 </html>
